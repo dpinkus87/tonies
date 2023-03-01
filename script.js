@@ -27,7 +27,7 @@ function addTony() {
 //     window.location.href = "./profile.html";
 // }
 
-// signup & login forms
+// SIGNUP & LOGIN FORMS
 function openSignup() {
     document.getElementById("signupForm").style.display = "block";
 }

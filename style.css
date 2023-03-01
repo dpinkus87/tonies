@@ -40,17 +40,6 @@
   transform: rotateY(180deg);
 }
 
-.login-container form {
-  display: inline-flex;
-  flex-direction: column;
-  float: left;
-  align-items: center;
-  margin-left: 33%;
-  font-size: 20px;
-  border: 3px solid green;
-  margin-top: 10%;
-}
-
 /* Login Form */
 .login-container {
   display: none;
@@ -59,6 +48,18 @@
 #login-popup {
   display: inline-flex;
   flex-direction: column;
+  float: right;
+  margin-right: 5%;
+}
+
+#login-popup label {
+  margin-bottom: 1.75px;
+  font-size: 21px;
+}
+
+#login-popup input {
+  margin-bottom: 12px;
+  font-size: 21px;
 }
 
 /* Signup Form */
@@ -70,7 +71,7 @@
   display: inline-flex;
   flex-direction: column;
   float: right;
-  margin-right: 5%;
+  margin-right: 6%;
 }
 
 #signup-popup label {
@@ -99,6 +100,7 @@ header h1 {
 
 header p {
   margin-top: 37%;
+  color: red;
 }
 
 img {
