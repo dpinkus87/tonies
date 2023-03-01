@@ -50,6 +50,9 @@
   flex-direction: column;
   float: right;
   margin-right: 5%;
+  border: solid black 2px;
+  border-radius: 6px;
+  padding: 7px;
 }
 
 #login-popup label {
@@ -72,6 +75,9 @@
   flex-direction: column;
   float: right;
   margin-right: 6%;
+  border: solid black 2px;
+  border-radius: 6px;
+  padding: 7px;
 }
 
 #signup-popup label {
