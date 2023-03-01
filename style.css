@@ -118,10 +118,20 @@ img {
   height: 100px;
   width: 80px;
   margin-top: 49%;
+  cursor: pointer;
+}
+
+.closeSignup {
+  background-color: rgb(206, 19, 19);
 }
 
 .login {
   height: 100px;
   width: 80px;
   margin-top: 49%;
+  cursor: pointer;
+}
+
+.closeLogin {
+  background-color: rgb(206, 19, 19);
 }
