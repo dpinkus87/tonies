@@ -1,8 +1,8 @@
-var cart = document.getElementById("cart")
 
-const toyStoryCard = document.getElementById("ToyStory")
-const elmoCard = document.getElementById("Elmo")
-const natGeoCard = document.getElementById("NatGeo")
+const toyStoryCard = document.getElementById("flip-card").querySelectorAll(".ToyStory");
+console.log(toyStoryCard);
+const elmoCard = document.getElementById("Elmo");
+const natGeoCard = document.getElementById("NatGeo");
 
 // Create ordered list element
 var listEl = document.createElement("ol");
