@@ -47,7 +47,7 @@ NA
 
 This is a prototype showing the ability for a user to create an account, search for a specific Tonie, and add it to their cart. Future development will integrate a payment gateway, add items to a que, and receive the item. This is just a test.
 
-Provide instructions and examples for use. Include screenshots as needed.
+Deployed App: http://www.renttonies.com
 
 ## Credits
 
