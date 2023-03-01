@@ -51,6 +51,17 @@
   margin-top: 10%;
 }
 
+/* Login Form */
+.login-container {
+  display: none;
+}
+
+#login-popup {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+/* Signup Form */
 .signup-container {
   display: none;
 }
