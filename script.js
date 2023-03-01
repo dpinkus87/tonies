@@ -26,3 +26,12 @@ function addTony() {
 // function goToProfile() {
 //     window.location.href = "./profile.html";
 // }
+
+// signup & login forms
+function openSignup() {
+    document.getElementById("signupForm").style.display = "block";
+}
+
+function closeSignup() {
+    document.getElementById("signupForm").style.display = "none";
+}

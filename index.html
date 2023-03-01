@@ -13,6 +13,11 @@
     <img src="./assets/images/hanging-rent-sign-by-vexels.png" />
         <h1>tonies</h1>
         <p>&#174</p>
+        <div class="join-container">
+            <button class="signup" onclick="openSignup()">Sign-Up</button>
+            <button class="login">Login</button>
+            <!-- click button to access form modal for each -->
+        </div>
 </header>
 
 <body>
@@ -27,8 +32,8 @@
             <button type="submit">Login</button>
         </form>
     </div>
-    <div class="signup-container">
-        <form>
+    <div class="signup-container" id="signupForm">
+        <form action="/action_page.php" id="signup-popup">
             <label for="username">Username</label>
             <input type="text" placeholder="Username" required>
 
@@ -39,8 +44,9 @@
             <input type="password" placeholder="Password" required>
 
             <button type="submit">SignUp</button>
+            <button type="button" class="closeSignup" onclick="closeSignup()">Close</button>
         </form>
     </div>
 </body>
-
+<script src="./script.js"></script>
 </html>
