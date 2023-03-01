@@ -49,6 +49,8 @@ This is a prototype showing the ability for a user to create an account, search 
 
 Deployed App: http://www.renttonies.com
 
+<img src="./assets/images/Screen Shot 2023-03-01 at 11.06.57 AM.png">
+
 ## Credits
 
 This project was developed by dpinkus87 & boywondr84
