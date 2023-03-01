@@ -60,3 +60,24 @@
     border: 3px solid green;
     margin-top: 10%;
   }
+
+  /* Header */
+  header {
+    display: inline-flex;
+  }
+  header h1 {
+    color: red;
+    font-family: 'Museo Moderno', Georgia, 'Times New Roman', Times, serif;
+    font-size: 45px;
+    margin-left: 20px;
+    margin-top: 35%;
+  }
+
+  header p {
+    margin-top: 37%;
+  }
+
+  img {
+    margin-left: 74%;
+    height: 300px;
+  }
