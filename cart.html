@@ -1,59 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <link rel="stylesheet" href="./style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Tonies Available</title>
+  </head>
+  <body>
 
-</head>
-<body>
-
-    <div id="flip-card" class="ToyStory">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="./assets/images/TS Card.jpeg" alt="Avatar" style="width:300px;height:300px;">
-            <p>Toy Story</p>
-          </div>
-          <div class="flip-card-back">
-            <h1>Andy's Toys</h1>
-            <p>We love that guy</p>
-            <button onclick="addTony()">Add To Cart</button>
-          </div>
-        </div>
-      </div>
-    
-<!-- 
-    <div class="flip-card Elmo">
+    <div class="flip-card ToyStory">
       <div class="flip-card-inner">
-        <div class="flip-card-front" id="Elmo">
-          <img src="./assets/images/Elmo card.jpeg" alt="Avatar" style="width:300px;height:300px;">
-          <p>Elmo</p>
+        <div class="flip-card-front" id="TS">
+          <img
+            src="./assets/images/TS Card.jpeg"
+            alt="Avatar"
+            style="width: 300px; height: 300px"
+          />
+          <p>Toy Story</p>
         </div>
         <div class="flip-card-back">
-          <h1>Elmo story</h1>
+          <h1>Andy's Toys</h1>
           <p>We love that guy</p>
-          <button onclick=addTony()>Add To Cart</button>
+          <button onclick="tsCard()" id="btn">Add To Cart</button>
         </div>
       </div>
     </div>
 
 
-    <div class="flip-card NatGeo">
-      <div class="flip-card-inner">
-        <div class="flip-card-front" id="NatGeo">
-          <img src="./assets/images/Nat Geo card.jpg" alt="Avatar" style="width:300px;height:300px;">
-          <p>Nat Geo</p>
-        </div>
-        <div class="flip-card-back">
-          <h1>Learn about Penguins</h1>
-          <p>We love that guy</p>
-          <button onclick=addTony()>Add To Cart</button>
-        </div>
-      </div>
-    </div> -->
+    <script>
 
-    <script src="./script.js"></script>
-</body>
+      function tsCard() {
+        document.getElementsByClassName("flip-card Toy Story").getAttribute("value")
+      };
+      console.log(tsCard);
+    </script>
+
+    <!-- <script src="./script.js"></script> -->
+  </body>
 </html>
