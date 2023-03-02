@@ -50,6 +50,12 @@ This is a prototype showing the ability for a user to create an account, search 
 Deployed App: http://www.renttonies.com
 
 <img src="./assets/images/Screen Shot 2023-03-01 at 11.06.57 AM.png">
+<img src="./assets/images/Screen Shot 2023-03-02 at 3.38.40 PM.png">
+<img src="./assets/images/Screen Shot 2023-03-02 at 3.38.53 PM.png>
+
+Mobile:
+
+<img src="./assets/images/Screen Shot 2023-03-02 at 3.39.06 PM.png">
 
 ## Credits
 
