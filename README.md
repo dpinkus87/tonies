@@ -13,7 +13,7 @@ This site allows users to purchase a monthly subscription to rent Tonies and exc
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
-- [How to contribute](#how to contribute)
+- [How to contribute](#how-to-contribute)
 - [Tests](#tests)
 
 ## License
