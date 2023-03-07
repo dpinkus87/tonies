@@ -1,7 +1,7 @@
-import React from "react";
-import { useMutation } from "@apollo/client";
+// import React from "react";
+// import { useMutation } from "@apollo/client";
 
-// TODO: import mutations
-// TODO: import queries
+// // TODO: import mutations
+// // TODO: import queries
 
-export default ToniesList
+// export default ToniesList;

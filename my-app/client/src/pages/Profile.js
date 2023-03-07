@@ -3,7 +3,7 @@ import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';  
 
-import ToniesList from '../components/ToniesList';
+// import ToniesList from '../components/ToniesList';
 
 // TODO: Update queries and import here
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries.js'
@@ -16,7 +16,7 @@ const Profile = () => {
     const { loading, data } = useQuery(
         profileId ? QUERY_SINGLE_PROFILE : QUERY_ME,
         {
-            variables: { profileId, profileId},
+            variables: { profileId },
         }
     );
 
