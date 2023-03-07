@@ -15,7 +15,9 @@ const typeDefs = gql`
     }
 
 # TODO: Update query
-    type Query 
+    type Query {
+        
+    }
 
 type Mutation {
     addProfile(name: String!, email: String!, password: String!): Auth
