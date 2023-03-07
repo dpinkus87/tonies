@@ -22,6 +22,7 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
+      // eslint-disable-next-line no-template-curly-in-string
       authorization: token ? 'Bearer ${token}' : '',
     },
   };
