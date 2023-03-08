@@ -1,23 +1,22 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Profile } = require('../models');
+const { Profile, Product, Order, Category } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
-// TODO: create queries
-// Query: {
-//     profiles: async () => {
-//         return Profile.find();
-//     },
-//     profile: async (parent, { profileId}) => {
-//         return Profile.findOne({_id: profileId});
-//     },
-//     me: async (parent, args, context) => {
-//         if (context.user) {
-//             return Profile.findOne({ _id: context.user.id });
-//         };
-//         throw new AuthenticationError('You need to log in first');
-//     },
-// },
+Query: {
+    profiles: async () => {
+        return Profile.find();
+    },
+    profile: async (parent, { profileId}) => {
+        return Profile.findOne({_id: profileId});
+    },
+    me: async (parent, args, context) => {
+        if (context.user) {
+            return Profile.findOne({ _id: context.user.id });
+        };
+        throw new AuthenticationError('You need to log in first');
+    },
+},
 
 // TODO: create mutations
 Mutation: {

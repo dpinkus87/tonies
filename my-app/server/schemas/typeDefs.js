@@ -9,12 +9,29 @@ const typeDefs = gql`
         tonies: [String]
     }
 
+    type Category {
+        _id: ID
+        name: String
+    }
+
+    type Order {
+        _id: ID
+        purchaseDate: String
+        products: [Product]
+    }
+
+    type Product {        _id: ID
+        name: String
+        description: String
+        image: String
+        category: Category
+    }
+
     type Auth {
         token: ID!
         profile: Profile
     }
 
-# TODO: Update query
     type Query {
     categories: [Category]
     products(category: ID, name: String): [Product]

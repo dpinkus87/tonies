@@ -37,7 +37,6 @@ profileSchema.pre('save', async function (next) {
     next();
   });
   
-  // Compare the incoming password with the hashed password
   profileSchema.methods.isCorrectPassword = async function (password) {
     await bcrypt.compare(password, this.password);
   };
