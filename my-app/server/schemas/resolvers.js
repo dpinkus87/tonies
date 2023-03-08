@@ -11,10 +11,40 @@ Query: {
         return Profile.findOne({_id: profileId});
     },
     me: async (parent, args, context) => {
-        if (context.user) {
-            return Profile.findOne({ _id: context.user.id });
+        if (context.profile) {
+            return Profile.findOne({ _id: context.profile.id });
         };
         throw new AuthenticationError('You need to log in first');
+    },
+   categories: async () => Category.find(),
+    products: async (parent, { category, name }) => {
+      const params = {};
+
+      if (category) {
+        params.category = category;
+      }
+
+      if (name) {
+        params.name = {
+          $regex: name,
+        };
+      }
+
+      return Product.find(params).populate('category');
+    },
+    product: async (parent, { id }) =>
+      Product.findById(id).populate('category'),
+        order: async (parent, { id }, context) => {
+      if (context.profile) {
+        const profile = await Profile.findById(context.profile.id).populate({
+          path: 'orders.products',
+          populate: 'category',
+        });
+
+        return profile.orders.id(id);
+      }
+
+      throw new AuthenticationError('Not logged in');
     },
 },
 
@@ -42,6 +72,29 @@ Mutation: {
       const token = signToken(profile);
       return { token, profile };
     },
+
+  addOrder: async (parent, { products }, context) => {
+      console.log(context);
+      if (context.profile) {
+        const order = new Order({ products });
+
+        await Profile.findByIdAndUpdate(context.profile.id, {
+          $push: { orders: order },
+        });
+
+        return order;
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+    updateProfile: async (parent, args, context) => {
+      if (context.profile) {
+        return Profile.findByIdAndUpdate(context.profile.id, args, {
+          new: true,
+        });
+      }
+
+      throw new AuthenticationError('Not logged in');
 }
 }
 
