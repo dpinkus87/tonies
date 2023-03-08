@@ -5,8 +5,8 @@ import { useQuery } from '@apollo/client';
 
 // import ToniesList from '../components/ToniesList';
 
-// TODO: Update queries and import here
-import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries.js'
+// TODO: Update queries 
+import { QUERY_PROFILE } from '../utils/queries.js'
 
 import Auth from '../utils/auth';
 
@@ -14,13 +14,13 @@ const Profile = () => {
     const { profileId} = useParams();
 
     const { loading, data } = useQuery(
-        profileId ? QUERY_SINGLE_PROFILE : QUERY_ME,
+        profileId ? QUERY_PROFILE:
         {
             variables: { profileId },
         }
     );
 
-    const profile = data?.me || data?.profile || {};
+    const profile = data?.profile || {};
 
     if (Auth.loggedIn() && Auth.getProfile().data._id === profileId) {
         return <Navigate to="/me" />;
