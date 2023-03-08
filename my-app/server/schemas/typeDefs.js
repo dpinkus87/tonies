@@ -16,7 +16,11 @@ const typeDefs = gql`
 
 # TODO: Update query
     type Query {
-        
+    categories: [Category]
+    products(category: ID, name: String): [Product]
+    product(_id: ID!): Product
+    profile: Profile
+    order(_id: ID!): Order
     }
 
 type Mutation {
