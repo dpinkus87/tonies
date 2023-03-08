@@ -1,22 +1,30 @@
-const { AuthenticationError } = require('apollo-server-express');
-const { Profile, Product, Order, Category } = require('../models');
-const { signToken } = require('../utils/auth');
+const { AuthenticationError } = require("apollo-server-express");
+const { Profile, Product, Order, Category } = require("../models");
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
-Query: {
-    profiles: async () => {
-        return Profile.find();
+  Query: {
+    profile: async (parent, { profileId }) => {
+      return Profile.findOne({ _id: profileId });
     },
-    profile: async (parent, { profileId}) => {
-        return Profile.findOne({_id: profileId});
+
+    profile: async (parent, args, context) => {
+      if (context.profile) {
+        const profile = await Profile.findById(context.profile._id).populate({
+          path: 'orders.products',
+          populate: 'category'
+        });
+
+        profile.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
+
+        return profile;
+      }
+
+      throw new AuthenticationError('Not logged in');
     },
-    me: async (parent, args, context) => {
-        if (context.profile) {
-            return Profile.findOne({ _id: context.profile.id });
-        };
-        throw new AuthenticationError('You need to log in first');
-    },
-   categories: async () => Category.find(),
+
+    categories: async () => Category.find(),
+
     products: async (parent, { category, name }) => {
       const params = {};
 
@@ -30,26 +38,27 @@ Query: {
         };
       }
 
-      return Product.find(params).populate('category');
+      return Product.find(params).populate("category");
     },
+
     product: async (parent, { id }) =>
-      Product.findById(id).populate('category'),
-        order: async (parent, { id }, context) => {
+      Product.findById(id).populate("category"),
+
+    order: async (parent, { id }, context) => {
       if (context.profile) {
         const profile = await Profile.findById(context.profile.id).populate({
-          path: 'orders.products',
-          populate: 'category',
+          path: "orders.products",
+          populate: "category",
         });
 
         return profile.orders.id(id);
       }
 
-      throw new AuthenticationError('Not logged in');
+      throw new AuthenticationError("Not logged in");
     },
-},
+  },
 
-// TODO: create mutations
-Mutation: {
+  Mutation: {
     addProfile: async (parent, { name, email, password }) => {
       const profile = await Profile.create({ name, email, password });
       const token = signToken(profile);
@@ -60,20 +69,20 @@ Mutation: {
       const profile = await Profile.findOne({ email });
 
       if (!profile) {
-        throw new AuthenticationError('No profile with this email found!');
+        throw new AuthenticationError("No profile with this email found!");
       }
 
       const correctPw = await profile.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect password!');
+        throw new AuthenticationError("Incorrect password!");
       }
 
       const token = signToken(profile);
       return { token, profile };
     },
 
-  addOrder: async (parent, { products }, context) => {
+    addTonie: async (parent, { products }, context) => {
       console.log(context);
       if (context.profile) {
         const order = new Order({ products });
@@ -85,17 +94,33 @@ Mutation: {
         return order;
       }
 
-      throw new AuthenticationError('Not logged in');
+      throw new AuthenticationError("Not logged in");
     },
-    updateProfile: async (parent, args, context) => {
-      if (context.profile) {
-        return Profile.findByIdAndUpdate(context.profile.id, args, {
-          new: true,
+
+    addOrder: async (parent, { products }, context) => {
+      console.log(context);
+      if (context.user) {
+        const order = new Order({ products });
+
+        await User.findByIdAndUpdate(context.user.id, {
+          $push: { orders: order },
         });
+
+        return order;
       }
 
       throw new AuthenticationError('Not logged in');
-}
-}
+    },
+    // updateProfile: async (parent, args, context) => {
+    //   if (context.profile) {
+    //     return Profile.findByIdAndUpdate(context.profile.id, args, {
+    //       new: true,
+    //     });
+    //   }
+
+    //   throw new AuthenticationError("Not logged in");
+    // },
+  },
+};
 
 module.exports = resolvers;
