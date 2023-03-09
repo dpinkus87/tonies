@@ -1,3 +1,5 @@
+// Component for a single Tonie card. This will be used in the Tonies list/marketplace, as well as on a users profile to show what they currently have rented / in a users que to show what Tonies are pending delivery...
+
 import React from "react";
 import { Link } from "react-router-dom";
 
