@@ -4,8 +4,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';  
 
 // import ToniesList from '../components/ToniesList';
-
-// TODO: Update queries 
+ 
 import { QUERY_PROFILE } from '../utils/queries.js'
 
 import Auth from '../utils/auth';
